@@ -1,6 +1,17 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, avoid_print, unused_import
+// ignore_for_file: prefer_const_constructors
+// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: avoid_print
+// ignore_for_file: unused_import
+// ignore_for_file:
+// ignore_for_file:
+// ignore_for_file:
+// ignore_for_file:
+// ignore_for_file:
+// ignore_for_file:
+// ignore_for_file:
 
-import 'package:excel/func_excel.dart';
+//imports
+import 'package:excel/listed_sheet.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,20 +43,29 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  List<int> lista_ids_tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  List<String> nomes_funcs_excel = ['teste1', 'teste2', 'teste3', 'teste4', 'teste5', 'teste6', 'teste7', 'teste8', 'teste9', 'teste10'];
-  List<String> vmp_excel = ['0.11', '0.22', '0.33', '0.44', '0.55', '0.66', '0.88', '0.99', '1.11', '2.11'];
-  List<String> percent_erro_excel = ['0.28', '0.32', '0.45', '0.28', '0.44', '0.95', '1.5', '4.28', '0.53', '2.10'];
+  Color corCt_1 = Color.fromARGB(255, 199, 192, 192);
+  Color corCt_2 = Color.fromARGB(255, 199, 192, 192);
+  Color corCt_3 = Color.fromARGB(255, 199, 192, 192);
+  Color corCt_4 = Color.fromARGB(255, 199, 192, 192);
+  Color corCt_5 = Color.fromARGB(255, 199, 192, 192);
+  Color corCt_6 = Color.fromARGB(255, 199, 192, 192);
+  Color corCt_7 = Color.fromARGB(255, 199, 192, 192);
+  Color corCt_8 = Color.fromARGB(255, 199, 192, 192);
 
   @override
   Widget build(BuildContext context) {
+
+    // Screen dimensions
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         title: Padding(
           padding: const EdgeInsets.only(left: 15),
           child: Text(
-            "Flutter Excel",
+            "Flutter OfficeChart RoadMap",
             style: TextStyle(
               fontSize: 20,
               color: Colors.white,
@@ -57,37 +77,425 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 500),
-            GestureDetector(
-              onTap: () {
-                createExcel(lista_ids_tasks, nomes_funcs_excel, vmp_excel, percent_erro_excel);
-              },
-              child: Container(
-                width: 200,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.blue
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Center(
-                      child: Text(
-                        "Download Excel",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
+            Container(
+              height: screenHeight / 2.14,
+              color: Colors.transparent,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //ct1 sup
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: MouseRegion(
+                      onHover: (_) {
+                        setState(() {
+                          corCt_1 = Color.fromARGB(255, 139, 135, 135);
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          corCt_1 = Color.fromARGB(255, 199, 192, 192);
+                        });
+                      },
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            listed_sheet();
+                          });
+                        },
+                        child: Container(
+                          width: screenWidth / 4.5,
+                          height: screenHeight / 2.4,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: corCt_1,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Listed Sheet",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    Icon(
-                      Icons.download,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
+                  ),
+                  //ct2 sup
+                  MouseRegion(
+                    onHover: (_) {
+                      setState(() {
+                        corCt_2 = Color.fromARGB(255, 139, 135, 135);
+                      });
+                    },
+                    onExit: (_) {
+                      setState(() {
+                        corCt_2 = Color.fromARGB(255, 199, 192, 192);
+                      });
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          //
+                        });
+                      },
+                      child: Container(
+                        width: screenWidth / 4.5,
+                        height: screenHeight / 2.4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: corCt_2,
+                        ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Pie Chart",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
+                      ),
+                    ),
+                  ),
+                  //ct3 sup
+                  MouseRegion(
+                    onHover: (_) {
+                      setState(() {
+                        corCt_3 = Color.fromARGB(255, 139, 135, 135);
+                      });
+                    },
+                    onExit: (_) {
+                      setState(() {
+                        corCt_3 = Color.fromARGB(255, 199, 192, 192);
+                      });
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          //
+                        });
+                      },
+                      child: Container(
+                        width: screenWidth / 4.5,
+                        height: screenHeight / 2.4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: corCt_3,
+                        ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Bar Chart",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
+                      ),
+                    ),
+                  ),
+                  //ct4 sup
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40),
+                    child: MouseRegion(
+                      onHover: (_) {
+                        setState(() {
+                          corCt_4 = Color.fromARGB(255, 139, 135, 135);
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          corCt_4 = Color.fromARGB(255, 199, 192, 192);
+                        });
+                      },
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            //
+                          });
+                        },
+                        child: Container(
+                          width: screenWidth / 4.5,
+                          height: screenHeight / 2.4,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: corCt_4,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Dual Bar Chart",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: screenHeight / 2.14,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //ct1 inf
+                  Padding(
+                    padding: const EdgeInsets.only(left: 40),
+                    child: MouseRegion(
+                      onHover: (_) {
+                        setState(() {
+                          corCt_5 = Color.fromARGB(255, 139, 135, 135);
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          corCt_5 = Color.fromARGB(255, 199, 192, 192);
+                        });
+                      },
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            //
+                          });
+                        },
+                        child: Container(
+                          width: screenWidth / 4.5,
+                          height: screenHeight / 2.4,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: corCt_5,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Line Chart",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  //ct2 inf
+                  MouseRegion(
+                    onHover: (_) {
+                      setState(() {
+                        corCt_6 = Color.fromARGB(255, 139, 135, 135);
+                      });
+                    },
+                    onExit: (_) {
+                      setState(() {
+                        corCt_6 = Color.fromARGB(255, 199, 192, 192);
+                      });
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          //
+                        });
+                      },
+                      child: Container(
+                        width: screenWidth / 4.5,
+                        height: screenHeight / 2.4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: corCt_6,
+                        ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Stacked Chart",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
+                      ),
+                    ),
+                  ),
+                  //ct3 inf
+                  MouseRegion(
+                    onHover: (_) {
+                      setState(() {
+                        corCt_7 = Color.fromARGB(255, 139, 135, 135);
+                      });
+                    },
+                    onExit: (_) {
+                      setState(() {
+                        corCt_7 = Color.fromARGB(255, 199, 192, 192);
+                      });
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          //
+                        });
+                      },
+                      child: Container(
+                        width: screenWidth / 4.5,
+                        height: screenHeight / 2.4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: corCt_7,
+                        ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Stacked Bar Chart",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
+                      ),
+                    ),
+                  ),
+                  //ct4
+                  Padding(
+                    padding: const EdgeInsets.only(right: 40),
+                    child: MouseRegion(
+                      onHover: (_) {
+                        setState(() {
+                          corCt_8 = Color.fromARGB(255, 139, 135, 135);
+                        });
+                      },
+                      onExit: (_) {
+                        setState(() {
+                          corCt_8 = Color.fromARGB(255, 199, 192, 192);
+                        });
+                      },
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            //
+                          });
+                        },
+                        child: Container(
+                          width: screenWidth / 4.5,
+                          height: screenHeight / 2.4,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: corCt_8,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20),
+                              Center(
+                                child: Text(
+                                  "Stacked Line Chart",
+                                  style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Icon(
+                                Icons.download,
+                                color: Colors.black,
+                                size: 40,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],

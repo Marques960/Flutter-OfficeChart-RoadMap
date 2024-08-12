@@ -1,14 +1,23 @@
-// excel_generator.dart
-// ignore_for_file: non_constant_identifier_names, unused_local_variable, avoid_print
+//ignorances
+// ignore_for_file: non_constant_identifier_names 
+// ignore_for_file: unused_local_variable
+// ignore_for_file: avoid_print
 
+//imports
 import 'dart:typed_data';
 import 'dart:html' as html;
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 
-Future<void> createExcel(List<int> lista_ids_tasks,List<String> nomes_funcs_excel, List<String> vmp_excel, List<String> percent_erro_excel) async {
+Future<void> listed_sheet() async {
   final Workbook workbook = Workbook();
   final Worksheet sheet = workbook.worksheets[0];
   sheet.showGridlines = false;
+
+  List<int> lista_ids_tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  List<String> nomes_funcs_excel = ['teste1', 'teste2', 'teste3', 'teste4', 'teste5', 'teste6', 'teste7', 'teste8', 'teste9', 'teste10'];
+  List<String> vmp_excel = ['0.11', '0.22', '0.33', '0.44', '0.55', '0.66', '0.88', '0.99', '1.11', '2.11'];
+  List<String> percent_erro_excel = ['0.28', '0.32', '0.45', '0.28', '0.44', '0.95', '1.5', '4.28', '0.53', '2.10'];
+  
 
   sheet.enableSheetCalculations();
 
@@ -30,7 +39,7 @@ Future<void> createExcel(List<int> lista_ids_tasks,List<String> nomes_funcs_exce
     sheet.getRangeByName('B9').setText('Rafael Marques');
     sheet.getRangeByName('B9').cellStyle.fontSize = 12;
 
-    sheet.getRangeByName('B10').setText('Rebordinho, Campia');
+    sheet.getRangeByName('B10').setText('Portugal');
     sheet.getRangeByName('B10').cellStyle.fontSize = 11;
 
     sheet.getRangeByName('B11').setText('Contactos:');
@@ -131,17 +140,9 @@ Future<void> createExcel(List<int> lista_ids_tasks,List<String> nomes_funcs_exce
       range4.cellStyle.fontSize = 12;
       range4.cellStyle.hAlign = HAlignType.center;
       range4.cellStyle.vAlign = VAlignType.center;
-      /*
-      //valor atb
-      final range5 = sheet.getRangeByName('F$rowIndex');
-      range5.setText(valor_atb[i].toString());
-      range5.cellStyle.fontSize = 12;
-      range5.cellStyle.hAlign = HAlignType.center;
-      range5.cellStyle.vAlign = VAlignType.center
-      */
     }
 
-    sheet.getRangeByIndex(46, 1).text ='RFS Telecomunicações | info@rfs.pt';
+    sheet.getRangeByIndex(46, 1).text ='DecodeFY';
     sheet.getRangeByIndex(46, 1).cellStyle.fontSize = 14;
 
     final Range range9 = sheet.getRangeByName('A46:F47');
@@ -160,7 +161,7 @@ Future<void> createExcel(List<int> lista_ids_tasks,List<String> nomes_funcs_exce
     final url = html.Url.createObjectUrlFromBlob(blob);
 
     final anchor = html.AnchorElement(href: url)
-      ..setAttribute('download', 'teste_excel.xlsx')
+      ..setAttribute('download', 'listed sheet.xlsx')
       ..click();
 
     html.Url.revokeObjectUrl(url);

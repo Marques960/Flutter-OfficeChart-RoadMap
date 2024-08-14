@@ -11,6 +11,7 @@ analyzer:
   errors:
     avoid_web_libraries_in_flutter: ignore
     no_leading_underscores_for_local_identifiers: ignore
+    override_on_non_overriding_member: ignore
     prefer_const_constructors: ignore
     prefer_const_literals_to_create_immutables: ignore
     sized_box_for_whitespace: ignore

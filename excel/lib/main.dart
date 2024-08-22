@@ -12,6 +12,7 @@
 
 //imports
 import 'package:excel/listed_sheet.dart';
+import 'package:excel/pie_chart.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -60,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      //app bar
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         title: Padding(
@@ -74,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      //body
       body: Center(
         child: Column(
           children: [
@@ -150,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          //
+                          pie_chart();
                         });
                       },
                       child: Container(

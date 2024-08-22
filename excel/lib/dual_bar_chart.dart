@@ -11,7 +11,7 @@ Future<void> dual_bar_chart() async {
 
   sheet2.showGridlines = false;
 
-  sheet2.getRangeByName('A1:B1').columnWidth = 30;
+  sheet2.getRangeByName('A1:C1').columnWidth = 30;
 
   sheet2.enableSheetCalculations();
   //header of the graphic

@@ -11,8 +11,14 @@
 // ignore_for_file:
 
 //imports
+import 'package:excel/bar_chart.dart';
+import 'package:excel/dual_bar_chart.dart';
+import 'package:excel/line_chart.dart';
 import 'package:excel/listed_sheet.dart';
 import 'package:excel/pie_chart.dart';
+import 'package:excel/stacked_bar_chart.dart';
+import 'package:excel/stacked_chart.dart';
+import 'package:excel/stacked_line_chart.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -202,7 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          //
+                          bar_chart();
                         });
                       },
                       child: Container(
@@ -253,7 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: GestureDetector(
                         onTap: () {
                           setState(() {
-                            //
+                            dual_bar_chart();
                           });
                         },
                         child: Container(
@@ -313,7 +319,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: GestureDetector(
                         onTap: () {
                           setState(() {
-                            //
+                            line_chart();
                           });
                         },
                         child: Container(
@@ -363,7 +369,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          //
+                          stacked_chart();
                         });
                       },
                       child: Container(
@@ -412,7 +418,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          //
+                          stacked_bar_chart();
                         });
                       },
                       child: Container(
@@ -463,7 +469,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: GestureDetector(
                         onTap: () {
                           setState(() {
-                            //
+                            stacked_line_chart();
                           });
                         },
                         child: Container(

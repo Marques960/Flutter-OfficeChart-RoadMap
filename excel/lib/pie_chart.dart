@@ -22,7 +22,7 @@ Future<void> pie_chart() async {
     sheet.getRangeByName('A1:B1').cellStyle.fontSize = 18;
     sheet.getRangeByName('A1:B1').cellStyle.bold = true;
 
-  //personalization
+  //categories
   sheet.getRangeByName('A2').setText('Venue');
   sheet.getRangeByName('A3').setText('Seating & Technical');
   sheet.getRangeByName('A4').setText('Technical');
@@ -86,7 +86,7 @@ Future<void> pie_chart() async {
 
     final anchor = html.AnchorElement(href: url)
     //atribute some name do the excel
-      ..setAttribute('download', 'Excel_Comp_Funcs.xlsx')
+      ..setAttribute('download', 'Pie_chart.xlsx')
       ..click();
 
     html.Url.revokeObjectUrl(url);

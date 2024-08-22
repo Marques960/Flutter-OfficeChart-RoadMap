@@ -7,58 +7,58 @@ import 'package:syncfusion_officechart/officechart.dart';
 
 Future<void> stacked_line_chart() async {
   final Workbook workbook = Workbook();
-  final Worksheet sheet2 = workbook.worksheets[0];
+  final Worksheet sheet6 = workbook.worksheets[0];
 
-  sheet2.showGridlines = false;
+  sheet6.showGridlines = false;
 
-  sheet2.getRangeByName('A1:B1').columnWidth = 30;
+  sheet6.getRangeByName('A1:C1').columnWidth = 30;
 
-  sheet2.enableSheetCalculations();
+  sheet6.enableSheetCalculations();
   //header of the graphic
-  sheet2.getRangeByName('A1').setText('Items');
-  sheet2.getRangeByName('B1').setText('Amount(in \$)');
+  sheet6.getRangeByName('A1').setText('City Name');
+  sheet6.getRangeByName('B1').setText('Temp in C');
+  sheet6.getRangeByName('C1').setText('Temp in F');
     //personalize
-    sheet2.getRangeByName('A1:B1').cellStyle.hAlign = HAlignType.center;
-    sheet2.getRangeByName('A1:B1').cellStyle.vAlign = VAlignType.center;
-    sheet2.getRangeByName('A1:B1').cellStyle.fontSize = 16;
-    sheet2.getRangeByName('A1:B1').cellStyle.bold = true;
-  
-  //categories
-  
-  sheet2.getRangeByName('A2').setText('Beverages');
-  sheet2.getRangeByName('A3').setText('Condiments');
-  sheet2.getRangeByName('A4').setText('Confections');
-  sheet2.getRangeByName('A5').setText('Dairy Products');
-  sheet2.getRangeByName('A6').setText('Grains / Cereals');
-    //personalization
-    sheet2.getRangeByName('A2:A6').cellStyle.hAlign = HAlignType.center;
-    sheet2.getRangeByName('A2:A6').cellStyle.vAlign = VAlignType.center;
-    sheet2.getRangeByName('A2:A6').cellStyle.fontSize = 14;
+    sheet6.getRangeByName('A1:C1').cellStyle.hAlign = HAlignType.center;
+    sheet6.getRangeByName('A1:C1').cellStyle.vAlign = VAlignType.center;
+    sheet6.getRangeByName('A1:C1').cellStyle.fontSize = 18;
+    sheet6.getRangeByName('A1:C1').cellStyle.bold = true;
 
-  //quantitites  
-  sheet2.getRangeByName('B2').setNumber(2776);
-  sheet2.getRangeByName('B3').setNumber(1077);
-  sheet2.getRangeByName('B4').setNumber(2287);
-  sheet2.getRangeByName('B5').setNumber(1368);
-  sheet2.getRangeByName('B6').setNumber(3325);
-    //center quantities
-    sheet2.getRangeByName('B2:B6').cellStyle.hAlign = HAlignType.center;
-    sheet2.getRangeByName('B2:B6').cellStyle.vAlign = VAlignType.center;
-    sheet2.getRangeByName('B2:B6').cellStyle.fontSize = 14;
+  sheet6.getRangeByName('A2').setText('Chennai');
+  sheet6.getRangeByName('A3').setText('Mumbai');
+  sheet6.getRangeByName('A4').setText('Delhi');
+  sheet6.getRangeByName('A5').setText('Hyderabad');
+  sheet6.getRangeByName('A6').setText('Kolkata');
+  
+  sheet6.getRangeByName('B2').setNumber(34);
+  sheet6.getRangeByName('B3').setNumber(40);
+  sheet6.getRangeByName('B4').setNumber(47);
+  sheet6.getRangeByName('B5').setNumber(20);
+  sheet6.getRangeByName('B6').setNumber(66);
+  
+  sheet6.getRangeByName('C2').setNumber(93);
+  sheet6.getRangeByName('C3').setNumber(104);
+  sheet6.getRangeByName('C4').setNumber(120);
+  sheet6.getRangeByName('C5').setNumber(80);
+  sheet6.getRangeByName('C6').setNumber(140);
+    //personalization
+    sheet6.getRangeByName('A2:C6').cellStyle.hAlign = HAlignType.center;
+    sheet6.getRangeByName('A2:C6').cellStyle.vAlign = VAlignType.center;
+    sheet6.getRangeByName('A2:C6').cellStyle.fontSize = 14;
 
   //create pie chart
-  final  charts = ChartCollection(sheet2);
-  final  chart1 = charts.add();
+  final charts = ChartCollection(sheet6);
+  final chart1 = charts.add();
   //define as bar chart
-  chart1.chartType = ExcelChartType.columnStacked;
+  chart1.chartType = ExcelChartType.lineStacked;
 
   //limit the data
-  chart1.dataRange = sheet2.getRangeByName('A1:B6');
-  sheet2.getRangeByName('A2:B6').rowHeight = 25;
+  chart1.dataRange = sheet6.getRangeByName('A1:C6');
+  sheet6.getRangeByName('A2:C6').rowHeight = 25;
   chart1.isSeriesInRows = false;
 
   //atribute title for the chart
-  chart1.chartTitle = "Bar Chart";
+  chart1.chartTitle = "Stacked Line Chart";
   chart1.chartTitleArea.bold;
   chart1.chartTitleArea.size = 20;
 
@@ -75,7 +75,7 @@ Future<void> stacked_line_chart() async {
   chart1.plotArea;
   chart1.linePattern = Chart.ExcelChartLinePattern.solid;
   chart1.linePattern = Chart.ExcelChartLinePattern.longDashDotDot;
-  sheet2.charts = charts;
+  sheet6.charts = charts;
 
 //----------------------------------------------------------------------------------
   //Save and launch the excel.
@@ -89,7 +89,7 @@ Future<void> stacked_line_chart() async {
 
     final anchor = html.AnchorElement(href: url)
       //atribute some name do the excel
-      ..setAttribute('download', 'Bar_chart.xlsx')
+      ..setAttribute('download', 'Stacked_Line_Chart.xlsx')
       ..click();
 
     html.Url.revokeObjectUrl(url);

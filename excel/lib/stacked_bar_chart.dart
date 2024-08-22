@@ -92,7 +92,7 @@ Future<void> stacked_bar_chart() async {
 
     final anchor = html.AnchorElement(href: url)
       //atribute some name do the excel
-      ..setAttribute('download', 'Stacked_Bar.xlsx')
+      ..setAttribute('download', 'Stacked_Bar_Chart.xlsx')
       ..click();
 
     html.Url.revokeObjectUrl(url);
